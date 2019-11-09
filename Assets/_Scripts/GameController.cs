@@ -1,10 +1,4 @@
-﻿/*
-Name: Rohan Juneja 
-Student Number: 300987725 
-Lab - 02 
-*/
-
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,7 +31,7 @@ public class GameController : MonoBehaviour
     public Text scoreLabel;
     public Text highScoreLabel;
 
-    
+
 
     [Header("UI Control")]
     public GameObject startLabel;
@@ -64,16 +58,16 @@ public class GameController : MonoBehaviour
         set
         {
             _lives = value;
-            if(_lives < 1)
+            if (_lives < 1)
             {
-                
+
                 SceneManager.LoadScene("End");
             }
             else
             {
                 livesLabel.text = "Lives: " + _lives.ToString();
             }
-           
+
         }
     }
 
@@ -120,11 +114,11 @@ public class GameController : MonoBehaviour
 
     private void SceneConfiguration()
     {
-            var query = from settings in sceneSettings
-                where settings.scene == (Scene)Enum.Parse(typeof(Scene), 
-                          SceneManager.GetActiveScene().name.ToUpper())
-                select settings;
-                activeSceneSettings = query.ToList()[0];
+        var query = from settings in sceneSettings
+                    where settings.scene == (Scene)Enum.Parse(typeof(Scene),
+                              SceneManager.GetActiveScene().name.ToUpper())
+                    select settings;
+        activeSceneSettings = query.ToList()[0];
 
         {
             activeSoundClip = activeSceneSettings.activeSoundClip;
@@ -168,7 +162,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // Event Handlers
